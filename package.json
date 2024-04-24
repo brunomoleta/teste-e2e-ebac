@@ -4,12 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,json,css}'",
+    "cy:hidden": "cypress run",
+    "cy:open": "cypress open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.6.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@testing-library/cypress": "^10.0.1",
+    "prettier": "^3.2.5"
   }
 }
