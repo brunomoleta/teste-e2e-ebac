@@ -1,5 +1,5 @@
 {
-  "name": "teste-e2e-ebac",
+  "name": "testes-e2e-cucumber-cy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
+    "@cypress/webpack-preprocessor": "^6.0.1",
     "cypress": "^13.6.0"
   },
   "devDependencies": {
