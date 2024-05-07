@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
-let dadosLogin;
+import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
+let dadosLogin;
 context("Funcionalidade Login", () => {
   before(() => {
     cy.fixture("perfil").then((perfil) => {
@@ -8,34 +9,16 @@ context("Funcionalidade Login", () => {
     });
   });
 
-  beforeEach(() => {
-    cy.visit("minha-conta");
-  });
-
-  afterEach(() => {
-    cy.screenshot();
-  });
-
-  it("Login com sucesso usando Comando customizado", () => {
-    cy.login(dadosLogin.usuario, dadosLogin.senha);
-    cy.get(".page-title").should("contain", "Minha conta");
-  });
-
-  it("Login usando fixture", () => {
-    cy.fixture("perfil").then((dados) => {
-      cy.login(dados.usuario, dados.senha);
+  Given("Dado que você está na páginal inicial", () => {
+    cy.setCookie("ebacStoreVersion", "v2", {
+      domain: "lojaebac.ebaconline.art.br",
     });
-    cy.get(".page-title").should("contain", "Minha conta");
+    cy.acessarAreaLogin();
   });
-
-  it.skip("Deve fazer login com sucesso - sem otimização", () => {
-    cy.get("#username").type(dadosLogin.usuario);
-    cy.get("#password").type(dadosLogin.senha, { log: false });
-    cy.get(".woocommerce-form > .button").click();
-    cy.get(".page-title").should("contain", "Minha conta");
-    cy.get(".woocommerce-MyAccount-content > :nth-child(2)").should(
-      "contain",
-      "Olá, aluno_ebac",
-    );
+  When("você insere dados de login válidos", () => {
+    cy.login(dadosLogin.usuario, dadosLogin.senha);
+  });
+  Then("você é direcionado a página de checkout", () => {
+    cy.get("form").should("not.exist");
   });
 });
