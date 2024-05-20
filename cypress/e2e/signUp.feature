@@ -4,11 +4,12 @@ Quero fazer o login (autenticação) na plataforma
 Para visualizar meus pedidos
 
 Background:
-Dado que o usuário está na página de Login
+Dado que o usuário está na página de Inicial
 
-Scenario: Login feito com dados válidos efetuado com sucesso
-When você insere dados de login válidos
-Then você é direcionado a página de checkout
+Scenario: Login com dados válidos efetuado com sucesso
+  Given você acessa no formulário de registro
+  When você insere dados de login válidos
+  Then você é direcionado a página de login
 
 #Scenario: Login não permitido, foi enviado email inválido
 #When usuário enviar uma requisição com email que não existe no banco de dados
