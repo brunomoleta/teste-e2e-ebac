@@ -1,12 +1,43 @@
+import { faker } from "@faker-js/faker";
+
+Cypress.Commands.add("acessarAplicativo", () => {
+  cy.setCookie("ebacStoreVersion", "v2", {
+    domain: "lojaebac.ebaconline.art.br",
+  });
+  cy.visit("/");
+});
 Cypress.Commands.add("acessarAreaLogin", () => {
-  cy.get('title="Login"').click();
+  cy.get('[href="/Tab/Account"]').click();
 });
 
 Cypress.Commands.add("enterInput", (id, texto) => {
-  cy.get(`#${id}`).type(texto, { log: false });
+  cy.get(`[data-testid=${id}]`).type(texto, { log: false });
+});
+const firstName = faker.name.firstName();
+const lastName = faker.name.lastName();
+
+const data = {
+  firstName: firstName,
+  lastName: lastName,
+  email: faker.internet.email({
+    firstName: firstName,
+    lastName: lastName,
+  }),
+  phone: faker.phone.number(),
+  password: faker.internet.password({ length: 8 }),
+};
+
+Cypress.Commands.add("registrarConta", () => {
+  cy.get(`[data-testid=signUp]`).click();
+
+  cy.enterInput("firstName", `${firstName}{enter}`);
+  cy.focused().type(`${lastName}{enter}`);
+  cy.focused().type(`${data.phone}{enter}`);
+  cy.focused().type(`${data.email}{enter}`);
+  cy.focused().type(`${data.password}{enter}`);
+  cy.focused().type(`${data.password}{enter}`);
+
+  cy.get(`[data-testid=create]`).click();
 });
 
-Cypress.Commands.add("login", (email, password) => {
-  cy.enterInput("username", email);
-  cy.enterInput("password", `${password}{enter}`);
-});
+import "@testing-library/cypress/add-commands";
