@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
 Cypress.Commands.add("acessarAplicativo", () => {
-  cy.setCookie("ebacStoreVersion", "v2", {
-    domain: "lojaebac.ebaconline.art.br",
+  cy.setCookie(Cypress.env("cookieKey"), Cypress.env("cookieValue"), {
+    domain: Cypress.env("url"),
   });
   cy.visit("/");
 });
@@ -13,8 +13,8 @@ Cypress.Commands.add("acessarAreaLogin", () => {
 Cypress.Commands.add("enterInput", (id, texto) => {
   cy.get(`[data-testid=${id}]`).type(texto, { log: false });
 });
-const firstName = faker.name.firstName();
-const lastName = faker.name.lastName();
+const firstName = faker.person.firstName();
+const lastName = faker.person.lastName();
 
 const data = {
   firstName: firstName,
