@@ -6,19 +6,12 @@ Para visualizar meus pedidos
 Background:
 Dado que o usuário está na página de Inicial
 
-Scenario: Login com dados válidos efetuado com sucesso
+Scenario: Registro com dados válidos efetuado com sucesso
   Given você acessa no formulário de registro
-  When você insere dados de login válidos
-  Then você é direcionado a página de login
+  When você insere dados de registro válidos
+  Then você é direcionado à página inicial
 
-#Scenario: Login não permitido, foi enviado email inválido
-#When usuário enviar uma requisição com email que não existe no banco de dados
-#Then usuário permanece na mesma página e aparece uma mensagem de erro
-#
-#Scenario Template: Login não permitido pois foi enviado senha incorreta
-#When usuário enviar <email> e <senha_invalida>
-#Then usuário permanece na mesma página e aparece uma mensagem de erro
-#
-#Examples:
-#| email              | senha_invalida     |
-#| roena@gmail.com    | senha_errada       |
+  Scenario: Registro com email já cadastrado efetuado sem sucesso
+  Given você acessa no formulário de registro
+  When você insere dados já existentes
+  Then você não consegue fazer o registro e aparece mensagem de erro
