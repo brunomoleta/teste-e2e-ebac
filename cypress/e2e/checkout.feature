@@ -9,4 +9,4 @@ Feature: Login
   Scenario: Compra realizada com sucesso
     Given você loga na conta do usuário
     When você insere produtos no carrinho
-    Then você finaliza o pedido de compra com sucesso
+    Then você visualiza a ordem de compra com sucesso
