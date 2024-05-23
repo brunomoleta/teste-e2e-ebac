@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { faker } from "@faker-js/faker";
-import { signUpPage } from "../support/pages/signUp.page";
+import { signUpPage } from "../../support/pages/signUp.page";
 
 Given("você acessa no formulário de registro", () => {
   cy.acessarAplicativo();
