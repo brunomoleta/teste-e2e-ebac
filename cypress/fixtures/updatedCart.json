@@ -1,0 +1,42 @@
+{
+  "success": true,
+  "cart": {
+    "_id": "664f920e23adf6ec33ab58b3",
+    "products": [
+      {
+        "productId": {
+          "_id": "663d81f57294efad05afd24a",
+          "photos": [
+            "http://lojaebac.ebaconline.art.br/lojaebac/lojaebac/sandals1-1715306997271.webp",
+            "http://lojaebac.ebaconline.art.br/lojaebac/lojaebac/sandals2-1715306997273.webp"
+          ],
+          "name": "Copa do Mundo 01",
+          "price": 9,
+          "quantity": 9963,
+          "specialPrice": 6
+        },
+        "quantity": 7,
+        "_id": "664f920e23adf6ec33ab58b4"
+      },
+      {
+        "productId": {
+          "_id": "663d81f57294efad05afd24a",
+          "photos": [
+            "http://lojaebac.ebaconline.art.br/lojaebac/lojaebac/sandals1-1715306997271.webp",
+            "http://lojaebac.ebaconline.art.br/lojaebac/lojaebac/sandals2-1715306997273.webp"
+          ],
+          "name": "PRODUTO ATUALIZADO",
+          "price": 3,
+          "quantity": 9963,
+          "specialPrice": 1
+        },
+        "quantity": 2,
+        "_id": "664f920e23adf6ec33ab58b4"
+      }
+    ],
+    "userId": "664f8cd523adf6ec33ab55df",
+    "createdAt": "2024-05-23T18:59:26.425Z",
+    "updatedAt": "2024-05-23T18:59:26.425Z",
+    "__v": 0
+  }
+}
