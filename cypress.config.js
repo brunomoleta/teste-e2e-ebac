@@ -37,7 +37,12 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "http://lojaebac.ebaconline.art.br/",
     execTimeout: 8 * 1000,
-    specPattern: "**/*.feature",
-    setupNodeEvents,
+    specPattern: "**/*.cy.js",
+
   },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportFilename: "[name]-result",
+  }
+
 });
