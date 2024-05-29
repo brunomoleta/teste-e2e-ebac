@@ -16,13 +16,17 @@ jobs:
           with:
             node-version: '20'
 
+        - name: Install dependencies
+          run: npm install
+
         - name: Cypress run
           uses: cypress-io/github-action@v6
           continue-on-error: true
           with:
-            - install-command: npm install
               browser: firefox
+              headless: true
               command: npm run cy:run
+
         - name: Publish report
           uses: peaceiris/actions-gh-pages@v3
           with:
