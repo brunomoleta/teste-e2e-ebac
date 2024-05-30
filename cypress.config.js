@@ -40,4 +40,12 @@ module.exports = defineConfig({
     specPattern: "**/*.feature",
     setupNodeEvents,
   },
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "mochawesome-report",
+    overwrite: false,
+    reportFilename: "index.html",
+    html: true,
+    json: false
+  }
 });
