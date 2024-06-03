@@ -1,0 +1,7 @@
+services:
+  cypress_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home/cypress
