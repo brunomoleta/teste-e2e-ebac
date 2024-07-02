@@ -34,6 +34,7 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+  projectId: "o8oj61",
   e2e: {
     baseUrl: "http://lojaebac.ebaconline.art.br/",
     execTimeout: 8 * 1000,
